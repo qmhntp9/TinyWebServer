@@ -1,21 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
-project(TinyWebServer)
+project(TinyWebServer C CXX)
 
 # C++ 标准
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 默认 Debug,可改 Release
-if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE Debug)
-endif()
-
-# 编译选项
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0")
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
-endif()
+# 编译选项(Debug 和 Release 都加合适的标志)
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 # 源文件
 set(SOURCES
